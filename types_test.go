@@ -101,6 +101,14 @@ func TestKilobytes(t *testing.T) {
 	}
 }
 
+func TestAllBibytes(t *testing.T) {
+	if Pebibyte != 9007199254740992 {
+		t.Errorf("expected a Pebibyte to be 9,007,199,254,740,992, got %v", Pebibyte)
+	}
+	// to get that value all of the intermediate values must be correct, so it's
+	// fine to just test one
+}
+
 func TestBitsString(t *testing.T) {
 	b := 0 * Bit
 	if got := b.String(); got != "0" {

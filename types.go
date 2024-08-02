@@ -169,12 +169,25 @@ const (
 	Bit  Bits = 1
 	Byte      = 8 * Bit
 	// https://en.wikipedia.org/wiki/Orders_of_magnitude_(data)
-	Kilobyte = 1000 * Byte
-	Megabyte = 1000 * Kilobyte
-	Gigabyte = 1000 * Megabyte
-	Terabyte = 1000 * Gigabyte
-	Petabyte = 1000 * Terabyte
-	Exabyte  = 1000 * Petabyte
+	Kilobyte = 1000 * Byte // KB
+	Kibibyte = 1024 * Byte // KiB
+
+	Megabyte = 1000 * Kilobyte // MB
+	Mebibyte = 1024 * Kibibyte // MiB
+
+	Gigabyte = 1000 * Megabyte // GB
+	Gibibyte = 1024 * Mebibyte // GiB
+
+	Terabyte = 1000 * Gigabyte // TB
+	Tebibyte = 1024 * Gibibyte // TiB
+
+	Petabyte = 1000 * Terabyte // PB
+	Pebibyte = 1024 * Tebibyte // PiB
+
+	Exabyte = 1000 * Petabyte
+
+	// This overflows int64
+	// Exbibyte = 1024 * Pebibyte // EiB
 )
 
 // Bits represents a quantity of bits, bytes, kilobytes or megabytes. Bits are
