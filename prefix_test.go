@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"testing"
 
-	uuid "github.com/gofrs/uuid"
+	uuid "github.com/gofrs/uuid/v5"
 )
 
 func ExamplePrefixUUID() {
@@ -66,7 +66,7 @@ var unmarshalTests = []struct {
 func TestUUIDUnmarshal(t *testing.T) {
 	for _, tt := range unmarshalTests {
 		var pfxu PrefixUUID
-		err := json.Unmarshal([]byte(fmt.Sprintf("\"%s\"", tt.in)), &pfxu)
+		err := json.Unmarshal(fmt.Appendf(nil, "\"%s\"", tt.in), &pfxu)
 		if tt.err != nil {
 			assertError(t, err, "")
 			assertEquals(t, err.Error(), tt.err.Error())
